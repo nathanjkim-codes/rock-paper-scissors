@@ -25,7 +25,6 @@ function getComputerChoice() {
 Step 2: FUNCTION getHumanChoice
   PROMPT user to enter "rock", "paper", or "scissors"
   STORE user's input as choice
-  REMOVE whitespace from the beginning and end of choice
   CONVERT choice to lowercase
   RETURN choice
 END FUNCTION
@@ -53,18 +52,24 @@ If human wins → human score +1
 Else → computer score +1
 */
 
-function getComputerChoice() {
-  let randomnum = Math.floor(Math.random() * 3);
-  if (randomnum === 0) {
-    return "rock";
-  } else if (randomnum === 1) {
-    return "paper";
+function playRound(humanChoice, computerChoice) {
+  humanChoice = humanChoice.toLowerCase();
+
+  if (humanChoice === computerChoice) {
+    console.log("It's a tie!");
+  } else if (
+    (humanChoice === "rock" && computerChoice === "scissors") ||
+    (humanChoice === "paper" && computerChoice === "rock") ||
+    (humanChoice === "scissors" && computerChoice === "paper")
+  ) {
+    humanScore++;
+    console.log(`You win! ${humanChoice} beats ${computerChoice}`);
   } else {
-    return "scissors";
+    computerScore++;
+    console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
   }
 }
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
 
-function getHumanChoice() {
-  let choice = prompt("rock, paper, or scissors?");
-  return choice.trim().toLowerCase();
-}
+playRound(humanSelection, computerSelection);
