@@ -11,10 +11,10 @@ END FUNCTION
 */
 
 function getComputerChoice() {
-  let randomnum = Math.floor(Math.random() * 3);
-  if (randomnum === 0) {
+  let randomNum = Math.floor(Math.random() * 3);
+  if (randomNum === 0) {
     return "rock";
-  } else if (randomnum === 1) {
+  } else if (randomNum === 1) {
     return "paper";
   } else {
     return "scissors";
