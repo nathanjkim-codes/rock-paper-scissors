@@ -91,12 +91,12 @@ function playGame() {
   function getHumanChoice() {
     return prompt("Rock, Paper, or Scissors?").trim().toLowerCase();
   }
-  
-function getComputerChoice() {
+
+  function getComputerChoice() {
     const options = ["rock", "paper", "scissors"];
     return options[Math.floor(Math.random() * 3)];
   }
-  
+
   function playRound(humanChoice, computerChoice) {
     console.log(`You chose: ${humanChoice}`);
     console.log(`Computer chose: ${computerChoice}`);
@@ -114,3 +114,21 @@ function getComputerChoice() {
       console.log("You lose this round!");
       computerScore++;
     }
+  }
+
+  for (let i = 0; i < 5; i++) {
+    playRound(getHumanChoice(), getComputerChoice());
+  }
+
+  console.log(`Final score - You: ${humanScore}, Computer: ${computerScore}`);
+
+  if (humanScore > computerScore) {
+    console.log("You win the game!");
+  } else if (humanScore < computerScore) {
+    console.log("You lose the game!");
+  } else {
+    console.log("The game is a tie!");
+  }
+}
+
+playGame();
