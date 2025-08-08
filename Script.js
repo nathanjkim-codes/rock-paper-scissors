@@ -83,3 +83,14 @@ Step 6: FUNCTION getHumanChoice
   - Give back the cleaned word so we can use it later.
 END FUNCTION
 */
+
+function playGame() {
+  let humanScore = 0;
+  let computerScore = 0;
+
+  function getHumanChoice() {
+    return prompt("Rock, Paper, or Scissors?").trim().toLowerCase();
+  }
+  
+
+  
