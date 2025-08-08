@@ -97,3 +97,20 @@ function getComputerChoice() {
     return options[Math.floor(Math.random() * 3)];
   }
   
+  function playRound(humanChoice, computerChoice) {
+    console.log(`You chose: ${humanChoice}`);
+    console.log(`Computer chose: ${computerChoice}`);
+
+    if (humanChoice === computerChoice) {
+      console.log("It's a tie!");
+    } else if (
+      (humanChoice === "rock" && computerChoice === "scissors") ||
+      (humanChoice === "paper" && computerChoice === "rock") ||
+      (humanChoice === "scissors" && computerChoice === "paper")
+    ) {
+      console.log("You win this round!");
+      humanScore++;
+    } else {
+      console.log("You lose this round!");
+      computerScore++;
+    }
